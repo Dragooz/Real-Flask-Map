@@ -1,0 +1,5 @@
+articles,word_count,negative_words,positive_words
+Flight article,1264,41,67
+Train article,600,14,45
+Bus article,912,21,52
+Grab article,4639,41,72

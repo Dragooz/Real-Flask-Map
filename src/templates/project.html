@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+
+    <div class = title>Route</div>
+    {% for message in form.route.errors %}
+    <div>{{ message }}</div>
+    {% endfor %}
+    <form action = # method = post>
+         <fieldset>
+            <legend>Route</legend>
+            {{ form.hidden_tag() }}
+            <div class = container>
+                <select name="route">
+                    {% for choice in form.route.choices %}
+                        <option value= {{ choice }}> {{ choice }}</option>
+                    {% endfor %}
+                </select>
+                <p> {{form.route.data}} </p>
+                <div class = distance>
+                    <p> The distance of this route is: {{form.route.dist}} m </p>
+                </div>
+                {{ form.submit }}
+                <button onclick="location.href='sentiment_analysis'" type="button">Sentiment Analysis</button>
+            </div>
+         </fieldset>
+      </form>
+
+     <div class = label>
+         <ul>
+             <li id="blue" >Driving</li>
+             <li id="red">Bus</li>
+             <li id="black">Walk</li>
+             <li id="yellow">Ship</li>
+             <li id="purple">Train</li>
+             <li id="green">Flight</li>
+         </ul>
+     </div>
+
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <script>
+            var messages = {{ messages | safe }};
+                for (var i=0; i<messages.length; i++) {
+                alert(messages[i]);
+                }
+        </script>
+        {% endif %}
+    {% endwith %}
+
+{% endblock %}

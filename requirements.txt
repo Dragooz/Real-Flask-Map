@@ -1,0 +1,8 @@
+plotly==4.6.0
+Flask_WTF==0.14.3
+Flask==1.1.2
+WTForms==2.2.1
+gmplot==1.2.0
+pandas==1.0.4
+googlemaps==4.2.0
+polyline==1.4.0
